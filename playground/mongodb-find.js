@@ -16,5 +16,10 @@ MongoClient.connect(url, (err, client) => {
         }
         console.log("item inserted", JSON.stringify(res.ops[0]._id.getTimestamp(), undefined, 2));
     })
+    client.db(dbname).collection('Todos').find({title: 'tofo'}).toArray((err, data) => {console.log('data', data)})
+    client.db(dbname).collection('Todos').find({
+        title: 'tofo',
+        _id: new ObjectID('5a6d46c922cf1126d41b061d')
+    }).toArray().then((data) => {console.log('data', data)})
     client.close();
-});
+})
