@@ -3,7 +3,7 @@ const Mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 4001;
 // Mongoose.connect('mongodb://localhost:27017/newTodo');
-Mongoose.connect('mongodb://<AbhishekVG>:<opensimsim@M13>@ds125578.mlab.com:25578/todoapp');
+Mongoose.connect('mongodb://AbhishekVG:opensimsim@M13@ds125578.mlab.com:25578/todoapp');
 const newtodo = Mongoose.model('newTodo', {
     text: {
         type: String,
