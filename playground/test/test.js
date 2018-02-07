@@ -3,7 +3,7 @@ const Mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 4001;
 // Mongoose.connect('mongodb://localhost:27017/newTodo');
-Mongoose.connect('mongodb://localhost:27017/newTodo', function (error) {
+Mongoose.connect(process.env.MONGOLAB_URI, function (error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
