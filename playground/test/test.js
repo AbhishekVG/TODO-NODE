@@ -3,10 +3,6 @@ const Mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 4001;
 // Mongoose.connect('mongodb://localhost:27017/newTodo');
-Mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
 // const newtodo = Mongoose.model('newTodo', {
 //     text: {
 //         type: String,
@@ -25,7 +21,10 @@ Mongoose.connect(process.env.MONGOLAB_URI, function (error) {
 // });
 
 app.get('/',(req, res) => {
-    res.send({output: 'successfuLL'});
+    Mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+        if (error) res.send({output: 'fail'});
+    else res.send({output: 'success'})
+    });
 });
 
 app.get('/:id',(req, res) => {
